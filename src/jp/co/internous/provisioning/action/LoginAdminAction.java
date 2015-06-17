@@ -12,7 +12,6 @@ import jp.co.internous.provisioning.dao.LoginAdminDAO;
 import jp.co.internous.provisioning.dto.ReservationInfoDTO;
 
 import com.opensymphony.xwork2.ActionSupport;
-
 /**
  * LoginAdminAction 管理者画面にログインするアクション
  * @author K.Mizuno
@@ -54,13 +53,12 @@ public class LoginAdminAction extends ActionSupport implements SessionAware{
 		if (dao.select(adminId, adminPassword)){
 			result = SUCCESS;
 			portId = dao.getPortId();
-			reservationList = dao.ThreeNil(portId);
+			reservationList = dao.select(portId);
 		}
 		sessionMap.put("reservationList", reservationList);
 		sessionMap.put("portId", portId);
 		return result;
 	}
-
 	/**
 	 * 管理者ID取得メソッド
 	 * @author K.Mizuno
@@ -70,7 +68,6 @@ public class LoginAdminAction extends ActionSupport implements SessionAware{
 	public int getAdminId() {
 		return adminId;
 	}
-
 	/**
 	 * 管理者ID格納メソッド
 	 * @author K.Mizuno
@@ -80,7 +77,6 @@ public class LoginAdminAction extends ActionSupport implements SessionAware{
 	public void setAdminId(int adminId) {
 		this.adminId = adminId;
 	}
-
 	/**
 	 * 管理者パスワード取得メソッド
 	 * @author K.Mizuno
@@ -90,7 +86,6 @@ public class LoginAdminAction extends ActionSupport implements SessionAware{
 	public String getAdminPassword() {
 		return adminPassword;
 	}
-
 	/**
 	 * 管理者パスワード格納メソッド
 	 * @author K.Mizuno

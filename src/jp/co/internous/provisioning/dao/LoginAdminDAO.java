@@ -78,7 +78,7 @@ public class LoginAdminDAO {
 	 * @param portId
 	 * @return reservationList
 	 */
-	public List<ReservationInfoDTO> ThreeNil(int portId){
+	public List<ReservationInfoDTO> select(int portId){
 		String portName = null;
 		List<ReservationInfoDTO> reservationList = new ArrayList<ReservationInfoDTO>();
 		

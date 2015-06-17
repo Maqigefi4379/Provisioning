@@ -43,7 +43,7 @@ public class EditCompleteAction extends ActionSupport implements SessionAware{
 		if(editDao.update(editNumber)){
 			result = SUCCESS;
 			LoginAdminDAO loginDao = new LoginAdminDAO();
-			reservationList = loginDao.ThreeNil((int)sessionMap.get("portId"));
+			reservationList = loginDao.select((int)sessionMap.get("portId"));
 			sessionMap.put("reservationList", reservationList);
 		}
 		return result;
