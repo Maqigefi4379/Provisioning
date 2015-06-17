@@ -22,8 +22,8 @@
 <script type="text/javascript" src="jquery.masonry.min.js"></script>
 <script>
 $(function(){
-	$('#container').masonry({	//ここには敷き詰めたい要素を囲うidなど指定します。
-		itemSelector : '.item'	//ここに敷き詰めたい要素のclassを指定します。
+	$('#container').masonry({
+		itemSelector : '.item'
 	});
 });
 </script>
@@ -53,23 +53,16 @@ height: 400px;
 <script>
 $(function(){
   $('#container').masonry({
-    // options
     itemSelector : '.item'
   });
 });
 </script>
-
 </head>
 <body>
 <br>
 <s:property value="#session.adminId"/>
 <div class="container">
 	<h1>予約情報</h1>
-	
-	
-	<s:form action = "">
-    
-	</s:form>
 	</div>
 		<s:iterator value="#session.reservationList">
 			<div class="item">

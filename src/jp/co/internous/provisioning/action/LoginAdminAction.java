@@ -47,7 +47,6 @@ public class LoginAdminAction extends ActionSupport implements SessionAware{
 	 * @return result
 	 */
 	public String execute(){
-		System.out.println(adminId);
 		String result = ERROR;
 		LoginAdminDAO dao =new LoginAdminDAO();
 		if (dao.select(adminId, adminPassword)){
