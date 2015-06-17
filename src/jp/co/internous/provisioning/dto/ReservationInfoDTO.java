@@ -1,12 +1,9 @@
+package jp.co.internous.provisioning.dto;
 /**
- * 
- */
-package jp.co.internous.Ucycle.DTO;
-
-
-/**
- * @author Alice_DaArc
- *
+ * ReservationInfoDTO 顧客情報を格納するクラス
+ * @author K.Mizuno
+ * @since 2015/6/12
+ *　
  */
 public class ReservationInfoDTO {
 	private int customerId;

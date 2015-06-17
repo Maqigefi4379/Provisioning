@@ -37,23 +37,18 @@ border: 1px solid #ccc;
 background: #eee;
 box-shadow: 0 2px 1px #eee;
 }
-
 .h01 {
 height: 100px;	
 }
-
 .h02 {
 height: 200px;
 }
-
 .h03 {
 height: 300px;	
 }
-
 .h04 {
 height: 400px;	
 }
-
 </style>
 <script>
 $(function(){
@@ -76,33 +71,6 @@ $(function(){
     
 	</s:form>
 	</div>
-
-	<!--  <table class="table">
-		<tr>
-			<th>会員ID</th>
-			<th>駐輪場ID</th>
-			<th>自転車ID</th>
-			<th>利用時間プラン</th>
-			<th>予約日時</th>
-			<th>完了</th>
-		</tr>
-		<s:iterator value="#session.reservationList">
-			<tr>
-			<td><s:property value="customerId"/></td>
-			<td><s:property value="portName"/></td>
-			<td><s:property value="cycleId"/></td>
-			<td><s:property value="plan"/></td>
-			<td><s:property value="reservationDate"/></td>
-			<td><s:form action="EditCompleteAction">
-			<input type="hidden" name="editNumber" value="<s:property value="cycleId"/>" >
-			<s:submit value="このデータを削除"/>
-			</s:form></td>
-			</tr>
-		</s:iterator>		
-	</table>-->
-	<!-- テスト用ここから -->
-
-
 		<s:iterator value="#session.reservationList">
 			<div class="item">
 			予約情報<br>
@@ -117,14 +85,11 @@ $(function(){
 			</s:form>
 			</div>
 		</s:iterator>		
-	<!--  テスト用ここまで -->
 	<div align="right">
 	<s:form action="LogoutAdminAction">
 	<input type="submit" class="btn btn-default" value="管理者ログアウト" />
 	</s:form>
 	</div>
-	
 	<script src="WebContent/js/jquery.masonry.min.js"></script>
-
 </body>
 </html>

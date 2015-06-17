@@ -1,7 +1,4 @@
-/**
- * 
- */
-package jp.co.internous.Ucycle.DAO;
+package jp.co.internous.provisioning.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,21 +6,47 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import jp.co.internous.Ucycle.DTO.ReservationInfoDTO;
-
-
+import jp.co.internous.provisioning.dto.ReservationInfoDTO;
+import jp.co.internous.provisioning.util.DBconnector;
 /**
- * @author Alice_DaArc
- *
+ * LoginAdminDAO AdminLoginActionがDBに接続するためのDAOクラス
+ * @author K.Mizuno
+ * @since 2015/6/11
+ * @version 1.0
  */
 public class LoginAdminDAO {
+	/**
+	 * 例外処理に入らなければtrueを返す
+	 */
 	private boolean res;
+	/**
+	 * コネクション
+	 */
 	private java.sql.Connection con;
+	/**
+	 * sql
+	 */
 	private String sql;
+	/**
+	 * 文字列をsql文として格納
+	 */
 	private PreparedStatement ps;
+	/**
+	 * 結果を格納
+	 */
 	private ResultSet rs;
+	/**
+	 * 駐輪場ID
+	 */
 	private int portId;
-
+	/**
+	 * 管理者情報を取得するメソッド
+	 * @author K.Mizuno
+	 * @since 2015/6/11
+	 * @param adminId
+	 * @param adminPassword
+	 * @return　result
+	 */
 	public boolean select(int adminId, String adminPassword){
 		res =false;
 		con = DBconnector.getConnection();
@@ -48,8 +71,14 @@ public class LoginAdminDAO {
 		}
 		return res;
 	}
-	
-	public List<ReservationInfoDTO> ThreeNil(int portId2){
+	/**
+	 * 予約情報を取得するメソッド
+	 * @author K.Mizuno
+	 * @since 2015/6/12
+	 * @param portId
+	 * @return reservationList
+	 */
+	public List<ReservationInfoDTO> ThreeNil(int portId){
 		String portName = null;
 		List<ReservationInfoDTO> reservationList = new ArrayList<ReservationInfoDTO>();
 		
@@ -57,7 +86,7 @@ public class LoginAdminDAO {
 		sql = "SELECT * FROM port WHERE port_id = ?";
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, portId2);
+			ps.setInt(1, portId);
 			rs = ps.executeQuery();
 			while(rs.next()){
 				portName = rs.getString(2);
@@ -99,6 +128,9 @@ public class LoginAdminDAO {
 	}
 
 	/**
+	 * 駐輪場IDを取得メソッド
+	 * @author K.Mizuno
+	 * @since 2015/6/12
 	 * @return portId
 	 */
 	public int getPortId() {

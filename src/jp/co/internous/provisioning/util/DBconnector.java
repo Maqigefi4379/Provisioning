@@ -1,26 +1,39 @@
-package jp.co.internous.Ucycle.DAO;
+package jp.co.internous.provisioning.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 /**
- * DBconnector DBから情報を取得するメソッド
- * @author Kobori Yuki
- * @since 2015/05/18
- * @param driverName  ドライバー名
- * @param url         url名
- * @param user        ユーザー名
- * @param pass        パスワード
- * @throws ClassNotFoundException
- * @throws SQLException
- * @return con
+ * DBconnecto DB接続を管理するクラス
+ * @author K.Mizuno
+ * @since 2015/6/11
+ * @version 1.0
  */
 public class DBconnector {
-
+	/**
+	 *ドライバー名
+	 */
     private static String driverName = "com.mysql.jdbc.Driver";
+    /**
+     * url名
+     */
     private static String url = "jdbc:mysql://localhost/ucycle";
+	/**
+	 *ユーザー名
+	 */
     private static String user = "root";
+	/**
+	 *パスワード
+	 */
     private static String pass = "mysql";
+    /**
+     * DBconnector DBから情報を取得するメソッド
+     * @author K.Mizuno
+     * @since 2015/06/12
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     * @return con
+     */
     public static Connection getConnection() {
 
         Connection con = null;
