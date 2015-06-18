@@ -30,7 +30,7 @@
 						<fieldset>
 							<div class="input-prepend" title="Username">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" name="adminId" id="username" type="text" placeholder="Admin ID"/>
+								<input class="input-large span10" pattern="[0-9a-z]" name="adminId" id="username" type="text" placeholder="Admin ID"/>
 							</div>
 							<div class="clearfix"></div>
 
