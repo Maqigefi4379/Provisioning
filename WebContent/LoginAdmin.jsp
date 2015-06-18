@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 	<meta charset="utf-8">
 	<title>管理者Login画面</title>
@@ -17,6 +17,23 @@
 			<style type="text/css">
 			body { background: url(img/LoginAdminImg.jpg) !important; }
 		</style>
+ 	<script type="text/javascript">
+    function chkRegEmail(str){
+    	/* 英数字のみの正規表現 */
+        var Seiki=/^[a-zA-Z0-9]+$/;
+        if(str!=""){
+            if(str.match(Seiki)){
+                return true;
+            }else{
+                alert("ログインIDは半角英数字で入力してください。");
+                document.forms.adminId.value = "";
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+</script>
 </head>
 <body>
 		<div class="container-fluid-full">
@@ -26,11 +43,11 @@
 					<div class="icons">	
 					</div>
 					<h2>Enter your ID and password.</h2>
-					<s:form class="form-horizontal" action="LoginAdminAction" method="post">
+					<s:form class="form-horizontal" action="LoginAdminAction" method="post" name="forms">
 						<fieldset>
 							<div class="input-prepend" title="Username">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" pattern="[0-9a-z]" name="adminId" id="username" type="text" placeholder="Admin ID"/>
+								<input type="text" class="input-large span10" name="adminId" id="username" placeholder="Admin ID" pattern="^[0-9A-Za-z]+$" />
 							</div>
 							<div class="clearfix"></div>
 
@@ -40,7 +57,7 @@
 							</div>
 							<div class="clearfix"></div>
 							<div class="button-login">	
-								<button type="submit" class="btn btn-primary">Login</button>
+								<button type="submit" class="btn btn-primary" onClick="chkRegEmail(this.form.adminId.value)">Login</button>
 							</div>
 							<div class="clearfix"></div>
 							</fieldset>
@@ -79,6 +96,12 @@
 		<script src="js/jquery.sparkline.min.js"></script>
 		<script src="js/counter.js"></script>
 		<script src="js/retina.js"></script>
-		<script src="js/custom.js"></script>
+		<script src="js/custom.js"></script>		
+		<script>
+			function Check1(){
+			  if(forms.adminId.value.match(/[^a-zA-Z0-9]/))alert("ログインIDは半角数字で入力してください。");
+			  document.forms.adminId.value = "";
+			}	
+		</script>
 </body>
 </html>
