@@ -19,7 +19,6 @@
 		</style>
  	<script type="text/javascript">
     function chkRegEmail(str){
-    	/* 英数字のみの正規表現 */
         var Seiki=/^[a-zA-Z0-9]+$/;
         if(str!=""){
             if(str.match(Seiki)){
